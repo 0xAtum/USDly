@@ -4,10 +4,24 @@ solc = '0.8.30'
 src = 'src'
 test = 'test'
 out = 'out'
-libs = ['lib']
 via_ir = true
 verbosity = 3
 auto_detect_remappings = true
+libs = [
+    # ./lib are refered in toolbox-foundry/lib
+    'node_modules/@layerzerolabs/toolbox-foundry/lib',
+    'node_modules',
+]
+
+remappings = [
+    'ds-test/=node_modules/@layerzerolabs/toolbox-foundry/lib/ds-test',
+    'forge-std/=node_modules/@layerzerolabs/toolbox-foundry/lib/forge-std',
+    '@layerzerolabs/=node_modules/@layerzerolabs/',
+    '@openzeppelin/=node_modules/@openzeppelin/',
+    '@layerzerolabs/script-devtools-evm-foundry/=node_modules/@layerzerolabs/script-devtools-evm-foundry/',
+    'solidity-bytes-utils/=node_modules/solidity-bytes-utils/',
+]
+
 
 # Foundry 1.0 has Optimizer disabled by default
 #optimizer = true 
