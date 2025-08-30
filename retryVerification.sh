@@ -36,10 +36,10 @@ if [ ! -f "$run_latest_file" ]; then
   exit 1
 fi
 
-transactions=$(jq -c '.transactions[] | select(.transactionType == "CREATE") | {arguments: (.arguments // []), contractName: .contractName, contractAddress: .contractAddress}' "$run_latest_file")
+transactions=$(jq -c '.transactions[] | select(.transactionType == "CREATE" or .transactionType == "CREATE2") | {arguments: (.arguments // []), contractName: .contractName, contractAddress: .contractAddress}' "$run_latest_file")
 
 if [ -z "$transactions" ]; then
-  echo "No 'CREATE' transactions found in $run_latest_file."
+  echo "No 'CREATE' or 'CREATE2' transactions found in $run_latest_file."
   exit 1
 fi
 
@@ -58,8 +58,8 @@ echo "$transactions" | while IFS= read -r transaction; do
   constructor_inputs=$(jq -c '.abi[] | select(.type == "constructor") | .inputs' "$contract_json")
 
   if [ -z "$constructor_inputs" ]; then
-    echo "No constructor inputs found for contract $contractName."
-    forge verify-contract "$contractAddress" "$contractName" --chain-id "$chainId" --watch || echo "Error verifying contract $contractName at address $contractAddress on chain $chainId."
+    echo "No constructor inputs found for contract $contractName. Guessing constructor arguments."
+    forge verify-contract "$contractAddress" "$contractName" --guess-constructor-args --chain-id "$chainId" --watch
     continue
   fi
 
@@ -67,7 +67,8 @@ echo "$transactions" | while IFS= read -r transaction; do
   constructor_string="constructor($input_types)"
 
   if ! encoded_args=$(cast abi-encode "$constructor_string" $args 2>/dev/null); then
-    echo "Error encoding arguments for $contractName with constructor $constructor_string."
+    echo "Error encoding arguments for $contractName with constructor $constructor_string. Guessing constructor arguments."
+    forge verify-contract "$contractAddress" "$contractName" --guess-constructor-args --chain-id "$chainId" --watch
     continue
   fi
 

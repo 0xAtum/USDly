@@ -1,3 +1,6 @@
 [submodule "node_modules/@layerzerolabs/toolbox-foundry/lib/evm-m-extensions"]
 	path = node_modules/@layerzerolabs/toolbox-foundry/lib/evm-m-extensions
 	url = https://github.com/m0-foundation/evm-m-extensions
+[submodule "node_modules/@layerzerolabs/toolbox-foundry/lib/openzeppelin-contracts-upgradeable"]
+	path = node_modules/@layerzerolabs/toolbox-foundry/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable

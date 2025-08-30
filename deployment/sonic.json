@@ -1,0 +1,10 @@
+[
+  {
+    "contractAddress": "0x0a13777D27253A6718DbcDA16990967476DFed92",
+    "contractName": "OmnichainUSDly"
+  },
+  {
+    "contractAddress": "0x014abe89BfC7acdE6430Ef6e50E90B7F218dd007",
+    "contractName": "BridgeController"
+  }
+]

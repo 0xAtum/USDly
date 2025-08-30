@@ -1,0 +1,18 @@
+[
+  {
+    "contractAddress": "0xcb8B7Bf39D2b53DFaC6abB78434aD721BB125Baa",
+    "contractName": "USDlyImplementation"
+  },
+  {
+    "contractAddress": "0x0f7BBc31AeBa42B5C2c3a7D660964abe4A74421c",
+    "contractName": "USDly"
+  },
+  {
+    "contractAddress": "0x0a13777D27253A6718DbcDA16990967476DFed92",
+    "contractName": "OmnichainUSDly"
+  },
+  {
+    "contractAddress": "0x977744374f6c893Cf10F7D769030c79d126282de",
+    "contractName": "BridgeController"
+  }
+]
