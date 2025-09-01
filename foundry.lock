@@ -1,4 +1,13 @@
 {
+  "node_modules/@layerzerolabs/toolbox-foundry/lib/evm-m-extensions": {
+    "rev": "70949db19003dbc417afa8d479763bd80de2562f"
+  },
+  "node_modules/@layerzerolabs/toolbox-foundry/lib/openzeppelin-contracts-upgradeable": {
+    "tag": {
+      "name": "v5.4.0",
+      "rev": "e725abddf1e01cf05ace496e950fc8e243cc7cab"
+    }
+  },
   "lib/forge-std": {
     "rev": "1eea5bae12ae557d589f9f0f0edae2faa47cb262"
   }

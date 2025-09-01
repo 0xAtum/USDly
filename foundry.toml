@@ -1,6 +1,6 @@
 [profile.default]
 fs_permissions = [{ access = "read-write", path = "./"}]
-solc = '0.8.30'
+solc = '0.8.26'
 src = 'src'
 test = 'test'
 out = 'out'
@@ -12,6 +12,7 @@ libs = [
     'node_modules/@layerzerolabs/toolbox-foundry/lib',
     'node_modules',
 ]
+ast = true
 
 remappings = [
     'ds-test/=node_modules/@layerzerolabs/toolbox-foundry/lib/ds-test',
@@ -37,14 +38,12 @@ match_path = "test/unit/*"
 
 [rpc_endpoints]
 localhost = "http://127.0.0.1:8545"
-mainnet = "${RPC_MAINNET}"
-sepolia = "${RPC_SEPOLIA}"
-sonicTestnet = "${RPC_SONIC_TESTNET}"
+ethereum = "${RPC_MAINNET}"
+sonic = "${RPC_SONIC}"
 
 [etherscan]
 ethereum = { key = "${ETHERSCAN_KEY}", chain = 1 }
-sepolia = { key = "${ETHERSCAN_KEY}", chain = 11155111 }
-sonicTestnet = { key = "${ETHERSCAN_KEY}", chain = 146 }
+sonic = { key = "${ETHERSCAN_KEY}", chain = 146 }
 
 [fmt]
 line_length = 90
